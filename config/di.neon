@@ -1,0 +1,9 @@
+services:
+    #db
+    - Nette\Database\Connection(%database.dsn%, %database.user%, %database.pass%)
+    #repos
+    - Demo\User\Repository\UserRepository
+    #controllers
+    - Demo\User\Controller\UserController
+    #services
+    - Demo\Silex\DiServiceProvider

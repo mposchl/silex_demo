@@ -1,0 +1,21 @@
+parameters:
+    api:
+        routes:
+            '/user':
+                get:
+                    controller: Demo\User\Controller\UserController
+                    method: listAction
+                post:
+                    controller: Demo\User\Controller\UserController
+                    method: createAction
+
+            '/user/{userId}':
+                get:
+                    controller: Demo\User\Controller\UserController
+                    method: detailAction
+                put:
+                    controller: Demo\User\Controller\UserController
+                    method: updateAction
+                delete:
+                    controller: Demo\User\Controller\UserController
+                    method: deleteAtion

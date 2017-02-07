@@ -1,0 +1,5 @@
+parameters:
+    database:
+        dsn: 'mysql:dbname=silex_demo;host=localhost;'
+        user: root
+        pass: bluefiat

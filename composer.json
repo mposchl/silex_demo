@@ -1,0 +1,17 @@
+{
+    "name": "mposchl/silex_demo",
+    "description": "Silex demo with user CRUD",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Martin Poschl",
+            "email": "martin.poschl@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~2.0",
+        "nette/robot-loader": "^2.4",
+        "nette/database": "2.4.2",
+        "nette/di": "2.4.6"
+    }
+}

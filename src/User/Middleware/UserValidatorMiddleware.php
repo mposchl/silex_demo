@@ -1,7 +1,6 @@
 <?php
 namespace Demo\User\Middleware;
 
-use Demo\User\Repository\UserRepository;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,29 +10,16 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class UserValidatorMiddleware implements InvokableMiddlewareInterface
 {
+    use RepositoryAwareTrait;
+
     const MSG_FIRSTNAME_MISSING = 'Invalid user first name or missing';
     const MSG_LASTNAME_MISSING = 'Invalid user last name or missing';
     const MSG_BAD_LOGIN_FORMAT = 'Invalid user login format or missing.';
-    const MSG_LOGIN_EXISTS = 'Login already exists';
 
     /**
      * @var array
      */
     private $errors = [];
-
-    /**
-     * @var UserRepository
-     */
-    private $repository;
-
-    /**
-     * UserValidatorMiddleware constructor.
-     * @param UserRepository $repository
-     */
-    public function __construct(UserRepository $repository)
-    {
-        $this->repository = $repository;
-    }
 
     /**
      * @inheritdoc
@@ -75,10 +61,6 @@ class UserValidatorMiddleware implements InvokableMiddlewareInterface
     {
         if (!preg_match("/[a-z]{6}[0-9]{2}/", $login)) {
             $this->errors[] = static::MSG_BAD_LOGIN_FORMAT;
-            return;
-        }
-        if ($this->repository->findByLogin($login)) {
-            $this->errors[] = static::MSG_LOGIN_EXISTS;
         }
     }
 }

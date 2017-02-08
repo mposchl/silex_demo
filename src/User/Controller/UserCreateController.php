@@ -24,8 +24,8 @@ class UserCreateController implements InvokableControllerInterface
             'login' => $request->get('login')
         ];
 
-        $this->repository->create($user);
+        $id = $this->repository->create($user);
 
-        return $this->responseFactory->create(static::MSG_CREATED, Response::HTTP_CREATED);
+        return $this->responseFactory->create(['id' => $id, 'msg' => static::MSG_CREATED], Response::HTTP_CREATED);
     }
 }

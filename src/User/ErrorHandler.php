@@ -43,6 +43,8 @@ class ErrorHandler
         $this->logger->addError($e->getMessage(), $e->getTrace());
         switch ($code) {
             case Response::HTTP_BAD_REQUEST:
+            case Response::HTTP_NOT_FOUND:
+            case Response::HTTP_FOUND:
                 return $this->responseFactory->create($e->getMessage(), $code);
             default:
                 return $this->responseFactory->create(static::MSG_DEFAULT, $code);

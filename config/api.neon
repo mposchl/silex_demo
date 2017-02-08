@@ -13,8 +13,14 @@ parameters:
                     middleware:
                         before:
                             - Demo\User\Middleware\UserValidatorMiddleware
+                            - Demo\User\Middleware\UserLoginValidatorMiddleware
 
             '/user/{userId}':
                 get: Demo\User\Controller\UserDetailController
-                put: Demo\User\Controller\UserUpdateController
+                put:
+                    controller: Demo\User\Controller\UserUpdateController
+                    middleware:
+                        before:
+                            - Demo\User\Middleware\UserIdValidatorMiddleware
+                            - Demo\User\Middleware\UserValidatorMiddleware
                 delete: Demo\User\Controller\UserDeleteController

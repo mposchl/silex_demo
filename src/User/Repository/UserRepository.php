@@ -66,4 +66,14 @@ class UserRepository
     {
         return $this->db->query('delete from user where id = ?', $userId);
     }
+
+    /**
+     * @param int $userId
+     * @param array $user
+     * @return \Nette\Database\ResultSet
+     */
+    public function updateById($userId, array $user)
+    {
+        return $this->db->query('update user set ? where id = ?', $user, $userId);
+    }
 }

@@ -13,6 +13,7 @@
         "nette/robot-loader": "^2.4",
         "nette/database": "2.4.2",
         "nette/di": "2.4.6",
-        "monolog/monolog": "~1.22"
+        "monolog/monolog": "~1.22",
+        "phpunit/phpunit": "^5.7"
     }
 }

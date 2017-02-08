@@ -20,3 +20,5 @@ services:
     - Demo\User\Middleware\DecodeJsonMiddleware
     - Demo\User\Middleware\LoginMiddleware
     - Demo\User\Middleware\UserValidatorMiddleware
+    - Demo\User\Middleware\UserLoginValidatorMiddleware
+    - Demo\User\Middleware\UserIdValidatorMiddleware

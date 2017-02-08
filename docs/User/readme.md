@@ -60,7 +60,6 @@ DELETE /user/{userId}
 ```
 "User not found"
 ```
-<a id="createUser"></a>
 ## create user
 - login must be in format of six chars and two digits [a-z]{6}[0-9]{2}
 - first name and surname is mandatory
@@ -100,7 +99,7 @@ POST /user
 "Invalid login format"
 ```
 ## update user
-- see [create user](#createUser)
+- see [create user](#create-user)
 
 ###request
 ```

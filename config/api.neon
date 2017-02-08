@@ -23,4 +23,8 @@ parameters:
                         before:
                             - Demo\User\Middleware\UserIdValidatorMiddleware
                             - Demo\User\Middleware\UserValidatorMiddleware
-                delete: Demo\User\Controller\UserDeleteController
+                delete:
+                    controller: Demo\User\Controller\UserDeleteController
+                    middleware:
+                        before:
+                            - Demo\User\Middleware\UserIdValidatorMiddleware

@@ -1,0 +1,15 @@
+paths:
+    migrations: %%PHINX_CONFIG_DIR%%/database
+    seeds: %%PHINX_CONFIG_DIR%%/db/seeds
+
+environments:
+    default_migration_table: phinxlog
+    default_database: silex_demo
+    development:
+        adapter: mysql
+        host: localhost
+        name: silex_demo
+        user: root
+        pass: 'bluefiat'
+        port:
+        charset: utf8

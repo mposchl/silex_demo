@@ -5,5 +5,5 @@
  */
 class UserRepositoryTest extends PHPUnit_Framework_TestCase
 {
-    //fixme
+    //fixme - does it really make sense?
 }

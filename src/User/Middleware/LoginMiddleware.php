@@ -14,6 +14,6 @@ class LoginMiddleware implements InvokableMiddlewareInterface
      */
     public function invoke(Request $request, Application $app)
     {
-        //fixme
+        //fixme implement some authentication
     }
 }

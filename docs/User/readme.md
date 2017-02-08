@@ -2,6 +2,7 @@
 
 ## get user list
 - get an array of all defined users
+
 ### request
 ```
 GET /user
@@ -59,9 +60,11 @@ DELETE /user/{userId}
 ```
 "User not found"
 ```
-
+<a id="createUser"></a>
 ## create user
 - login must be in format of six chars and two digits [a-z]{6}[0-9]{2}
+- first name and surname is mandatory
+
 ###accept
 ```
 application/json
@@ -97,6 +100,8 @@ POST /user
 "Invalid login format"
 ```
 ## update user
+- see [create user](#createUser)
+
 ###request
 ```
 PUT /user/{userid}

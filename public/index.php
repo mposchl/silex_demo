@@ -3,12 +3,13 @@ use Nette\DI\ContainerLoader;
 use Nette\DI\Compiler;
 use Nette\Loaders\RobotLoader;
 
-use \Demo\ApiMapper;
+use Demo\ApiMapper;
 use Demo\Silex\DiServiceProvider;
 
-const APP_DIR = __DIR__ . '/..';
-const TEMP_DIR = APP_DIR . '/temp';
-const CONFIG_DIR = APP_DIR . '/config';
+define('APP_DIR', __DIR__ . '/..');
+define('TEMP_DIR', APP_DIR . '/temp');
+define('CONFIG_DIR', APP_DIR . '/config');
+define('LOG_FILE', TEMP_DIR . '/error.log');
 
 require_once APP_DIR . '/vendor/autoload.php';
 
@@ -33,6 +34,6 @@ $app['debug'] = true;
 $provider = $container->getByType(DiServiceProvider::class);
 $app->register($provider);
 
-$mapper = new ApiMapper($container);
+$mapper = $container->getByType(ApiMapper::class);
 $mapper->map($app);
 $app->run();

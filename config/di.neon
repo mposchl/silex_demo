@@ -4,6 +4,19 @@ services:
     #repos
     - Demo\User\Repository\UserRepository
     #controllers
-    - Demo\User\Controller\UserController
+    - Demo\User\Controller\UserListController
+    - Demo\User\Controller\UserDetailController
+    - Demo\User\Controller\UserCreateController
+    - Demo\User\Controller\UserUpdateController
+    - Demo\User\Controller\UserDeleteController
     #services
     - Demo\Silex\DiServiceProvider
+    - Demo\Response\JsonResponseFactory
+    - Demo\ApiMapper
+    - Demo\User\ErrorHandler
+    - Monolog\Logger('debug', [@streamHandler])
+    streamHandler: Monolog\Handler\StreamHandler(::LOG_FILE)
+    #middleware
+    - Demo\User\Middleware\DecodeJsonMiddleware
+    - Demo\User\Middleware\LoginMiddleware
+    - Demo\User\Middleware\UserValidatorMiddleware

@@ -42,7 +42,13 @@ class DiServiceResolver implements ControllerResolverInterface
 
         $object = $this->container->getByType($class);
 
-        return array($object, $method);
+        $callable = array($object, $method);
+
+        if (!is_callable($callable)) {
+            throw new \InvalidArgumentException("$controller is not callable");
+        }
+
+        return $callable;
     }
 
     /**

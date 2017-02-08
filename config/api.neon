@@ -1,21 +1,20 @@
 parameters:
     api:
+        error: Demo\User\ErrorHandler
+        middleware:
+            before:
+                - Demo\User\Middleware\LoginMiddleware
+                - Demo\User\Middleware\DecodeJsonMiddleware
         routes:
             '/user':
-                get:
-                    controller: Demo\User\Controller\UserController
-                    method: listAction
+                get: Demo\User\Controller\UserListController
                 post:
-                    controller: Demo\User\Controller\UserController
-                    method: createAction
+                    controller: Demo\User\Controller\UserCreateController
+                    middleware:
+                        before:
+                            - Demo\User\Middleware\UserValidatorMiddleware
 
             '/user/{userId}':
-                get:
-                    controller: Demo\User\Controller\UserController
-                    method: detailAction
-                put:
-                    controller: Demo\User\Controller\UserController
-                    method: updateAction
-                delete:
-                    controller: Demo\User\Controller\UserController
-                    method: deleteAtion
+                get: Demo\User\Controller\UserDetailController
+                put: Demo\User\Controller\UserUpdateController
+                delete: Demo\User\Controller\UserDeleteController

@@ -1,6 +1,7 @@
 <?php
 namespace Demo\User\Controller;
 
+use Demo\User\Helper\UserHelper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,11 +19,7 @@ class UserCreateController implements InvokableControllerInterface
      */
     public function invoke(Request $request)
     {
-        $user = [
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'login' => $request->get('login')
-        ];
+        $user = UserHelper::prefillUser($request);
 
         $id = $this->repository->create($user);
 

@@ -1,6 +1,7 @@
 <?php
 namespace Demo\User\Middleware;
 
+use Demo\User\Helper\UserHelper;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,11 +27,7 @@ class UserValidatorMiddleware implements InvokableMiddlewareInterface
      */
     public function invoke(Request $request, Application $app)
     {
-        $user = [
-            'first_name' => $request->get('first_name'),
-            'last_name' => $request->get('last_name'),
-            'login' => $request->get('login')
-        ];
+        $user = UserHelper::prefillUser($request);
         if ($this->valid($user) !== true) {
             $app->abort(Response::HTTP_BAD_REQUEST, implode(', ', $this->errors));
         }

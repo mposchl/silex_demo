@@ -1,4 +1,5 @@
 # silex_demo
+- API documentation [here](/docs/User/readme.md)
 
 ## install
 - clone repository

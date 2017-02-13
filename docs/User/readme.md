@@ -20,8 +20,7 @@ GET /user
     {
         "id":4,
         "first_name":"Jana",
-        "last_name":
-        "Kocourkova",
+        "last_name":"Kocourkova",
         "login":"jkocou01"
     }
 ]
